@@ -4,6 +4,14 @@
   "version": "0.0.1",
   "packageManager": "pnpm@10.8.0",
   "description": "finografic core package - types, utils, constants, etc.",
+  "homepage": "https://github.com/finografic/core",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finografic/core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/finografic/core/issues"
+  },
   "author": {
     "name": "Justin",
     "email": "justin.blair.rankin@gmail.com",
@@ -14,24 +22,16 @@
     "finografic",
     "core",
     "types",
-    "utils",
-    "constants",
-    "api"
+    "utils"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "module": "dist/index.js",
+  "files": ["dist"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./api": {
-      "types": "./dist/api/index.d.ts",
-      "import": "./dist/api/index.js"
-    },
-    "./api/*": {
-      "types": "./dist/api/*.d.ts",
-      "import": "./dist/api/*.js"
     },
     "./constants": {
       "types": "./dist/constants/index.d.ts",
@@ -66,9 +66,9 @@
       "import": "./dist/utils/*.js"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "========== DEV": "=======================================================",
     "dev": "tsup --watch",
@@ -77,6 +77,15 @@
     "·········· LINTING": "···················································",
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
+    "·········· PUBLISH.GITHUB": "·····················································",
+    "prepublishOnly": "pnpm build && git add dist/** && git commit -m \"chore: update generated files\" || true",
+    "publish.github.gh.patch": "pnpm version patch && git push --follow-tags",
+    "publish.github.gh.minor": "pnpm version minor && git push --follow-tags",
+    "publish.github.gh.major": "pnpm version major && git push --follow-tags",
+    "publish.github.gh": "pnpm publish --registry https://npm.pkg.github.com && pnpm run publish.github.gh.post",
+    "publish.github.gh.post": "git push origin --tags && gh release create \"$(git describe --tags --abbrev=0)\" --title \"$(git describe --tags --abbrev=0)\" --notes \"Release $(git describe --tags --abbrev=0)\"",
+    "·········· REGISTRIES": "··············································",
+    "view.registry.gitub": "pnpm view @finografic/core --registry=https://npm.pkg.github.com",
     "·········· UTILS": "·····················································",
     "tsc.debug": "pnpm exec tsc --pretty --project tsconfig.json",
     "typecheck": "pnpm exec tsc --project tsconfig.json --noEmit",
@@ -84,9 +93,7 @@
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
-    "axios": "1.8.4",
-    "lodash": "4.17.21",
-    "stoker": "^1.0.0"
+    "lodash": "4.17.21"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
@@ -98,12 +105,10 @@
     "lint-staged": "^16.1.2",
     "simple-git-hooks": "^2.13.0",
     "tsup": "8.4.0",
-    "typescript": "^5.8.3",
-    "zod": "^3.21.4"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "typescript": "^5.8.3",
-    "zod": "^3.21.4"
+    "typescript": "^5.8.3"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

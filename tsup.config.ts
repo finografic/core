@@ -3,7 +3,6 @@ import { defineConfig } from 'tsup'
 export default defineConfig({
   entry: {
     'index': 'src/index.ts',
-    'api/index': 'src/api/index.ts',
     'constants/index': 'src/constants/index.ts',
     'types/index': 'src/types/index.ts',
     'types/utils/index': 'src/types/utils/index.ts',
@@ -16,5 +15,5 @@ export default defineConfig({
   minify: false,
   splitting: false,
   treeshake: true,
-  external: ['zod'],
+  external: ['lodash'],
 })
