@@ -80,7 +80,6 @@
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
     "·········· PUBLISH.GITHUB": "·····················································",
-    "prepublishOnly": "echo testing..",
     "release.github.patch": "pnpm version patch && git push --follow-tags",
     "release.github.minor": "pnpm version minor && git push --follow-tags",
     "release.github.major": "pnpm version major && git push --follow-tags",
