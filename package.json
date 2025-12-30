@@ -12,6 +12,9 @@
   "bugs": {
     "url": "https://github.com/finografic/core/issues"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "author": {
     "name": "Justin",
     "email": "justin.blair.rankin@gmail.com",
@@ -30,6 +33,7 @@
   "files": [
     "dist"
   ],
+
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -68,9 +72,7 @@
       "import": "./dist/utils/*.js"
     }
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
+
   "scripts": {
     "========== DEV": "=======================================================",
     "dev": "tsup --watch",
@@ -80,6 +82,7 @@
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
     "·········· PUBLISH.GITHUB": "·····················································",
+    "prepublishOnly": "echo testing..",
     "release.github.patch": "pnpm version patch && git push --follow-tags",
     "release.github.minor": "pnpm version minor && git push --follow-tags",
     "release.github.major": "pnpm version major && git push --follow-tags",
