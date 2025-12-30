@@ -87,7 +87,10 @@
     "view.registry.github": "pnpm view @finografic/core --registry=https://npm.pkg.github.com",
     "·········· UTILS": "·····················································",
     "tsc.debug": "pnpm exec tsc --pretty --project tsconfig.json",
-    "typecheck": "pnpm exec tsc --project tsconfig.json --noEmit"
+    "typecheck": "pnpm exec tsc --project tsconfig.json --noEmit",
+    "·········· HOOKS": "·····················································",
+    "prepack": "pnpm build",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "lodash": "4.17.21"
@@ -106,9 +109,6 @@
   },
   "peerDependencies": {
     "typescript": "^5.8.3"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
