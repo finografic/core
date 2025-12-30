@@ -1,7 +1,7 @@
 {
   "name": "@finografic/core",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "packageManager": "pnpm@10.8.0",
   "description": "finografic core package - types, utils, constants, etc.",
   "homepage": "https://github.com/finografic/core",
@@ -33,7 +33,6 @@
   "files": [
     "dist"
   ],
-
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -72,7 +71,6 @@
       "import": "./dist/utils/*.js"
     }
   },
-
   "scripts": {
     "========== DEV": "=======================================================",
     "dev": "tsup --watch",
