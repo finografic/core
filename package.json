@@ -81,18 +81,16 @@
     "lint.fix": "eslint . --fix",
     "·········· PUBLISH.GITHUB": "·····················································",
     "prepublishOnly": "pnpm build && git add dist/** && git commit -m \"chore: update generated files\" || true",
-    "publish.github.gh.patch": "pnpm version patch && git push --follow-tags",
-    "publish.github.gh.minor": "pnpm version minor && git push --follow-tags",
-    "publish.github.gh.major": "pnpm version major && git push --follow-tags",
-    "publish.github.gh": "pnpm publish --registry https://npm.pkg.github.com && pnpm run publish.github.gh.post",
-    "publish.github.gh.post": "git push origin --tags && gh release create \"$(git describe --tags --abbrev=0)\" --title \"$(git describe --tags --abbrev=0)\" --notes \"Release $(git describe --tags --abbrev=0)\"",
+    "release.github.patch": "pnpm version patch && git push --follow-tags",
+    "release.github.minor": "pnpm version minor && git push --follow-tags",
+    "release.github.major": "pnpm version major && git push --follow-tags",
+    "release.github": "pnpm publish --registry https://npm.pkg.github.com && pnpm run release.github.post",
+    "release.github.post": "git push origin --tags && gh release create \"$(git describe --tags --abbrev=0)\" --title \"$(git describe --tags --abbrev=0)\" --notes \"Release $(git describe --tags --abbrev=0)\"",
     "·········· REGISTRIES": "··············································",
-    "view.registry.gitub": "pnpm view @finografic/core --registry=https://npm.pkg.github.com",
+    "view.registry.github": "pnpm view @finografic/core --registry=https://npm.pkg.github.com",
     "·········· UTILS": "·····················································",
     "tsc.debug": "pnpm exec tsc --pretty --project tsconfig.json",
-    "typecheck": "pnpm exec tsc --project tsconfig.json --noEmit",
-    "·········· HOOKS": "·····················································",
-    "prepare": "simple-git-hooks"
+    "typecheck": "pnpm exec tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
     "lodash": "4.17.21"
