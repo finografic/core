@@ -1,7 +1,7 @@
 {
   "name": "@finografic/core",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "packageManager": "pnpm@10.8.0",
   "description": "finografic core package - types, utils, constants, etc.",
   "homepage": "https://github.com/finografic/core",
