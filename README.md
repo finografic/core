@@ -25,7 +25,7 @@ import { ... } from '@finografic/core';
 
 ### Constants
 
-- **Zod Errors**: Error codes and messages for Zod validation.
+- **Zod Errors**: Error codes and messages for Zod validation
 
 ### Utility Types
 
