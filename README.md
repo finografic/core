@@ -1,4 +1,4 @@
-# @finografic/core
+# 🦋 @finografic/core
 
 Core TypeScript utilities, types, and shared primitives for the finografic ecosystem.
 

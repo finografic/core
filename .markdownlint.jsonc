@@ -71,7 +71,8 @@
   // MD013/line-length : Line length : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md013.md
   "MD013": {
     // Number of characters
-    "line_length": 80,
+    // "line_length": 80,
+    "line_length": 120,
     // Number of characters for headings
     "heading_line_length": 80,
     // Number of characters for code blocks
@@ -208,12 +209,17 @@
   "MD039": true,
 
   // MD040/fenced-code-language : Fenced code blocks should have a language specified : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md040.md
+  /*
+  // NOTE: DEFAULT
   "MD040": {
     // List of languages
     "allowed_languages": [],
     // Require language only
     "language_only": false,
   },
+  */
+  // NEW: OVERRIDE
+  "MD040": false,
 
   // MD041/first-line-heading/first-line-h1 : First line in a file should be a top-level heading : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md041.md
   // Don't require first line to be a top-level heading
