@@ -46,3 +46,7 @@ import { ... } from '@finografic/core';
   different case conventions
 - **Object Guards**: Type guards for checking object property states
 - **Time**: Duration formatting, parsing, and validation utilities
+
+## License
+
+MIT © [finografic](https://github.com/finografic)
