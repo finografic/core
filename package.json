@@ -103,16 +103,21 @@
     "@typescript-eslint/parser": "^8.38.0",
     "eslint": "9.16.0",
     "lint-staged": "^16.1.2",
+    "markdownlint-cli": "^0.47.0",
     "simple-git-hooks": "^2.13.0",
     "tsup": "8.4.0",
     "typescript": "^5.8.3"
   },
-  "peerDependencies": {
-    "typescript": "^5.8.3"
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "pre-push": "pnpm lint && pnpm typecheck"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs}": [
-      "eslint --fix"
+    "*.{ts,tsx,js,mjs,cjs}": [
+      "pnpm exec eslint --fix"
+    ],
+    "*.md": [
+      "pnpm exec markdownlint"
     ]
   }
 }

@@ -5,7 +5,6 @@ const prettierDefaults = {
   cursorOffset: -1,
   embeddedLanguageFormatting: 'auto',
   endOfLine: 'lf',
-  hexLiterals: 'uppercase',
   htmlWhitespaceSensitivity: 'css',
   insertPragma: false,
   jsxSingleQuote: false,
