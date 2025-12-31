@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.3.4",
   "packageManager": "pnpm@10.8.0",
-  "description": "finografic core package - types, utils, constants, etc.",
+  "description": "Core TypeScript utilities, types, and shared primitives for the finografic ecosystem.",
   "homepage": "https://github.com/finografic/core",
   "repository": {
     "type": "git",
@@ -76,6 +76,10 @@
     "dev": "tsup --watch",
     "·········· BUILD": "·····················································",
     "build": "tsup",
+    "·········· TESTING": "···················································",
+    "test": "vitest",
+    "test.run": "vitest run",
+    "test.watch": "vitest",
     "·········· LINTING": "···················································",
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
@@ -104,15 +108,14 @@
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.38.0",
     "eslint": "9.16.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "lint-staged": "^16.1.2",
     "markdownlint-cli": "^0.47.0",
     "simple-git-hooks": "^2.13.0",
     "tsup": "8.4.0",
-    "typescript": "^5.8.3"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged",
-    "pre-push": "pnpm lint && pnpm typecheck"
+    "type-fest": "^5.3.1",
+    "typescript": "^5.8.3",
+    "vitest": "^4.0.16"
   },
   "lint-staged": {
     "*.{ts,tsx,js,mjs,cjs}": [
