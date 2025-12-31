@@ -30,12 +30,12 @@ GitHub automatically provides comparison views between tags.
 
 Example:
 
-https://github.com/finografic/react/compare/v0.5.0...v0.6.0
+https://github.com/finografic/core/compare/v0.5.0...v0.6.0
 
 Commits may also be referenced directly in release notes using their SHA:
 ```
 
-finografic/react@a1b2c3d
+finografic/core@a1b2c3d
 
 ```md
 No additional tooling or setup is required — tags are the source of truth.
