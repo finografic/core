@@ -2,8 +2,7 @@
 
 ## Naming
 
-- Kebab-case for files: `order-summary.ts`.
-- camelCase for utility files: `apiUtils.ts`.
+- Kebab-case for files: `item-summary.ts`.
 - PascalCase for exported types/interfaces when appropriate.
 
 ## Extensions
@@ -16,11 +15,11 @@
 
 ## Structure
 
-```
+```sh
 src/
   utils/
-    core.ts
-    extensions.ts
+    core.utils.ts
+    extensions.utils.ts
   examples/
     complete-store-example/
       TodoContext.ts
@@ -38,4 +37,4 @@ src/
 
 ## Config Files
 
-- Keep configs in project root (e.g., `tsup.config.ts`, `eslint.config.mjs`).
+- Keep configs in project root (e.g., `tsdown.config.ts`, `tsup.config.ts`, `eslint.config.mjs`).
