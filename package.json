@@ -1,7 +1,7 @@
 {
   "name": "@finografic/core",
   "type": "module",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "packageManager": "pnpm@10.8.0",
   "description": "Core TypeScript utilities, types, and shared primitives for the finografic ecosystem.",
   "homepage": "https://github.com/finografic/core",
