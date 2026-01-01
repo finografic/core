@@ -1,7 +1,10 @@
 import js from '@eslint/js'
-import tseslint from '@typescript-eslint/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
+import stylistic from '@stylistic/eslint-plugin';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import markdownlintPlugin from "eslint-plugin-markdownlint";
+import markdownlintParser from "eslint-plugin-markdownlint/parser.js";
 
 export default [
   js.configs.recommended,
@@ -11,7 +14,7 @@ export default [
   },
 
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ['**/*.ts', '**/*.tsx', './*.ts', './*.mjs'],
     languageOptions: {
       parser: tsParser,
       ecmaVersion: 'latest',
@@ -20,10 +23,12 @@ export default [
     plugins: {
       '@typescript-eslint': tseslint,
       'simple-import-sort': simpleImportSort,
+      'stylistic': stylistic,
     },
     rules: {
       'no-unused-vars': 'off',
       'no-redeclare': 'off',
+      'stylistic/semi': 'error',
 
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-redeclare': 'warn',
@@ -53,4 +58,28 @@ export default [
       'simple-import-sort/exports': 'error',
     },
   },
+
+
+  {
+    files: ['**/*md'],
+    ignores: ['node_modules/**', 'bin/**', '.cursor/**', '.github/instructions/**', '!templates/**'],
+    plugins: {
+      'markdownlint': markdownlintPlugin
+    },
+    languageOptions: {
+      parser: markdownlintParser
+    },
+    rules: {
+      ...markdownlintPlugin.configs.recommended.rules,
+      "markdownlint/md013": ["error", {
+        "line_length": 120,
+        "heading_line_length": 120,
+        "code_block_line_length": 120,
+      }],
+      "markdownlint/md025": "off",
+      "markdownlint/md040": "off",
+      "markdownlint/md041": "off",
+      "markdownlint/md043": "off",
+    }
+  }
 ]
