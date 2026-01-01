@@ -8,6 +8,11 @@ on:
 permissions:
   contents: write
   packages: write
+  actions: write
+  id-token: write
+  repository-projects: write
+  checks: write
+  deployments: write
 
 jobs:
   publish:
