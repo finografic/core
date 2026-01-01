@@ -4,6 +4,7 @@
   "version": "0.7.2",
   "packageManager": "pnpm@10.8.0",
   "description": "Core TypeScript utilities, types, and shared primitives for the finografic ecosystem.",
+  "private": false,
   "homepage": "https://github.com/finografic/core",
   "repository": {
     "type": "git",
@@ -54,6 +55,7 @@
     "release.github.minor": "pnpm run release.check && pnpm version minor && git push --follow-tags",
     "release.github.major": "pnpm run release.check && pnpm version major && git push --follow-tags",
     "release.check": "pnpm lint && pnpm typecheck",
+    "release.publish": "pnpm publish --registry https://npm.pkg.github.com",
     "·········· REGISTRIES": "··············································",
     "view.registry.github": "pnpm view @finografic/core --registry=https://npm.pkg.github.com",
     "·········· UTILS": "·····················································",
