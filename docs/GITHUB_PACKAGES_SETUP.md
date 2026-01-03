@@ -14,5 +14,3 @@ If you’re setting up a new machine or a new repo, open that doc and follow it 
 - **Workflow permissions**: `contents: write`, `packages: write`, `actions: write`
 - **Registry**: `@finografic:registry=https://npm.pkg.github.com`
 - **Do not** commit auth tokens; use `NODE_AUTH_TOKEN` in workflows
-
-

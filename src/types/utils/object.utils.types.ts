@@ -11,7 +11,7 @@ import type { SnakeToCamel } from './casing.utils.types';
  */
 export type CamelCasedKeys<T> = {
   [K in keyof T as SnakeToCamel<string & K>]:
-    T[K] extends object ? CamelCasedKeys<T[K]> : T[K];
+  T[K] extends object ? CamelCasedKeys<T[K]> : T[K];
 };
 
 // ------------------------------------------------------------------------ //

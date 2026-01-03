@@ -33,6 +33,8 @@ export default [
       'no-unused-vars': 'off',
       'no-redeclare': 'off',
       'stylistic/semi': 'error',
+      'stylistic/indent': ['error', 2, { SwitchCase: 1 }],
+      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
 
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-redeclare': 'warn',
@@ -71,7 +73,8 @@ export default [
       '!templates/**',
     ],
     plugins: {
-      'markdownlint': markdownlintPlugin
+      'markdownlint': markdownlintPlugin,
+      'stylistic': stylistic,
     },
     languageOptions: {
       parser: markdownlintParser
@@ -84,6 +87,8 @@ export default [
       "markdownlint/md040": "off", // Fenced code language
       "markdownlint/md041": "off", // First line heading
       "markdownlint/md043": "off", // Required heading structure
+      // Stylistic rules for markdown (must come after markdownlint rules)
+      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
     }
   }
 ];
