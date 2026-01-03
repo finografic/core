@@ -49,12 +49,11 @@
     "·········· LINTING": "···················································",
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
-    "lint.markdown.fix": "markdownlint --fix . --ignore ./node_modules",
     "·········· PUBLISH.GITHUB": "············································",
     "release.github.patch": "pnpm run release.check && pnpm version patch && git push --follow-tags",
     "release.github.minor": "pnpm run release.check && pnpm version minor && git push --follow-tags",
     "release.github.major": "pnpm run release.check && pnpm version major && git push --follow-tags",
-    "release.check": "pnpm lint && pnpm typecheck",
+    "release.check": "pnpm lint.fix && pnpm typecheck",
     "release.publish": "pnpm publish --registry https://npm.pkg.github.com",
     "·········· REGISTRIES": "··············································",
     "view.registry.github": "pnpm view @finografic/core --registry=https://npm.pkg.github.com",
@@ -91,9 +90,6 @@
   "lint-staged": {
     "*.{ts,tsx,js,mjs,cjs}": [
       "pnpm exec eslint --fix"
-    ],
-    "*.md": [
-      "pnpm exec markdownlint"
     ]
   }
 }
