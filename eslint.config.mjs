@@ -1,10 +1,10 @@
-import js from '@eslint/js'
+import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import markdownlintPlugin from "eslint-plugin-markdownlint";
 import markdownlintParser from "eslint-plugin-markdownlint/parser.js";
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 export default [
   js.configs.recommended,
@@ -19,6 +19,10 @@ export default [
       parser: tsParser,
       ecmaVersion: 'latest',
       sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': tseslint,
@@ -39,13 +43,11 @@ export default [
         'error',
         {
           groups: [
-            ['^@finografic', '^@workspace'],
+            ['^node','^@finografic', '^@workspace'],
             ['^\\u0000'],
             [
-              '^(lib)',
-              '^(utils)',
-              '^(types|constants)',
-              '^(config)',
+              '^(lib|utils)',
+              '^(types|constants|config)',
               '^\\.\\.(?!/?$)',
               '^\\.\\./?$',
               '^\\./(?=.*/)(?!/?$)',
@@ -59,10 +61,15 @@ export default [
     },
   },
 
-
   {
-    files: ['**/*md'],
-    ignores: ['node_modules/**', 'bin/**', '.cursor/**', '.github/instructions/**', '!templates/**'],
+    files: ['**/*.md'],
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      '.cursor/chat/**',
+      '.github/instructions/**',
+      '!templates/**',
+    ],
     plugins: {
       'markdownlint': markdownlintPlugin
     },
@@ -71,12 +78,12 @@ export default [
     },
     rules: {
       ...markdownlintPlugin.configs.recommended.rules,
-      "markdownlint/md013": "off",
-      "markdownlint/md024": "off",
-      "markdownlint/md025": "off",
-      "markdownlint/md040": "off",
-      "markdownlint/md041": "off",
-      "markdownlint/md043": "off",
+      "markdownlint/md013": "off", // Line length
+      "markdownlint/md024": "off", // Duplicate headings
+      "markdownlint/md025": "off", // Single h1
+      "markdownlint/md040": "off", // Fenced code language
+      "markdownlint/md041": "off", // First line heading
+      "markdownlint/md043": "off", // Required heading structure
     }
   }
-]
+];

@@ -45,6 +45,7 @@ When you run a release command:
 1. **Local checks run** (`release.check`)
    - Linting
    - Type checking
+   - Tests
 
 2. **Version bump** in `package.json`
    - Creates a commit
@@ -100,9 +101,9 @@ git push origin :refs/tags/v0.5.18
 pnpm release.github.patch
 ```
 
-### Pre-push hook fails
+### release.check fails
 
-Check that all tests pass:
+Run the checks manually to see what failed:
 
 ```bash
 pnpm lint.fix
@@ -118,5 +119,6 @@ pnpm test.run
 
 ## Related Documentation
 
+- [Developer Workflow](./DEVELOPER_WORKFLOW.md) - Daily development and git workflow
 - [GitHub Packages Setup Guide](./GITHUB_PACKAGES_SETUP.md) - Initial configuration
 - [GitHub Releases](https://github.com/finografic/core/releases) - Published releases
