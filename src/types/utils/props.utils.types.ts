@@ -4,13 +4,13 @@
  * Makes specific properties of a type optional while keeping the rest required.
  *
  * @example
- * type Result = WithOptional<
+ * type Result = OptionalProp<
  *   { id: number; email: string },
  *   'email'
  * >;
  * // { id: number; email?: string }
  */
-export type WithOptional<T, K extends keyof T> =
+export type OptionalProp<T, K extends keyof T> =
   Omit<T, K> & Partial<Pick<T, K>>;
 
 // ------------------------------------------------------------------------ //
@@ -25,7 +25,7 @@ export type WithOptional<T, K extends keyof T> =
  * >;
  * // { id: number; name?: string }
  */
-export type WithRequired<T, K extends keyof T> =
+export type RequiredProp<T, K extends keyof T> =
   Omit<T, K> & Required<Pick<T, K>>;
 
 // ------------------------------------------------------------------------ //
