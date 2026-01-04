@@ -1,7 +1,9 @@
+// import tseslint from '@typescript-eslint/eslint-plugin';
+// import tsParser from '@typescript-eslint/parser';
+import tseslint from 'typescript-eslint';
+
 import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import tseslint from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
 import markdownlintPlugin from "eslint-plugin-markdownlint";
 import markdownlintParser from "eslint-plugin-markdownlint/parser.js";
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
@@ -16,7 +18,8 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx', './*.ts', './*.mjs'],
     languageOptions: {
-      parser: tsParser,
+      // parser: tsParser,
+      parser: tseslint.parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
@@ -26,7 +29,8 @@ export default [
       },
     },
     plugins: {
-      '@typescript-eslint': tseslint,
+      // '@typescript-eslint': tseslint,
+      '@typescript-eslint': tseslint.plugin,
       'simple-import-sort': simpleImportSort,
       'stylistic': stylistic,
     },

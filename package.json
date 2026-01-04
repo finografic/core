@@ -86,6 +86,7 @@
     "tsdown": "^0.18.4",
     "type-fest": "^5.3.1",
     "typescript": "^5.8.3",
+    "typescript-eslint": "^8.51.0",
     "vitest": "^4.0.16"
   },
   "lint-staged": {
