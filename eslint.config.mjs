@@ -18,7 +18,6 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx', './*.ts', './*.mjs'],
     languageOptions: {
-      // parser: tsParser,
       parser: tseslint.parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
