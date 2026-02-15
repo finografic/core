@@ -8,8 +8,13 @@ import markdownlintPlugin from "eslint-plugin-markdownlint";
 import markdownlintParser from "eslint-plugin-markdownlint/parser.js";
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
+// NOTE: ALL @typescript-eslint/eslint-plugin (over 100 rules))
+// https://typescript-eslint.io/rules/
+
 export default [
   js.configs.recommended,
+  // tseslint.configs.strictTypeChecked, // ref: https://typescript-eslint.io/getting-started/typed-linting
+  // tseslint.configs.stylisticTypeChecked, // ref: https://typescript-eslint.io/getting-started/typed-linting
 
   {
     ignores: ['dist/**', 'node_modules/**'],
@@ -86,7 +91,6 @@ export default [
       parser: markdownlintParser
     },
     rules: {
-      ...markdownlintPlugin.configs.recommended.rules,
       ...markdownlintPlugin.configs.recommended.rules,
       "markdownlint/md012": "off", // Line length
       "markdownlint/md013": "off", // Line length
