@@ -9,5 +9,7 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
+  unbundle: true,
   target: 'esnext',
+  external: ['type-fest'],
 });
