@@ -1,7 +1,9 @@
 import { defineConfig } from 'tsdown';
 
 export default defineConfig({
-  exports: true,
+  // Do not let tsdown rewrite `exports` on build: with ESM-only output it emits a
+  // string entry for "." and omits `types`, which breaks TS under `moduleResolution`
+  exports: false,
   entry: {
     index: 'src/index.ts',
   },
@@ -11,5 +13,5 @@ export default defineConfig({
   sourcemap: true,
   unbundle: true,
   target: 'esnext',
-  external: ['type-fest'],
+  external: ['lodash', 'type-fest'],
 });
