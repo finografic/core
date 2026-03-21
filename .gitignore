@@ -14,11 +14,13 @@ build/
 # Testing
 test-*/
 
-# IDE
-.cursor/chats
-.cursor/hooks/
+# Agents
 .claude/
 !.claude/settings.json
+
+# IDE
+.cursor/
+!.cursor/rules/
 .idea/
 *.swp
 *.swo
@@ -41,7 +43,16 @@ coverage/
 # TypeScript
 *.tsbuildinfo
 
-# OS
+# macOS
 .DS_Store
 Thumbs.db
 Icon?
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
