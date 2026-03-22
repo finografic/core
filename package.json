@@ -99,7 +99,11 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs}": [
       "eslint --fix"
-    ]
+    ],
+    "*.md": [
+      "eslint --fix"
+    ],
+    "*.{json,jsonc,yml,yaml,toml}": []
   },
   "commitlint": {
     "extends": [
