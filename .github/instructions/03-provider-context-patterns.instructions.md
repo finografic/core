@@ -71,6 +71,7 @@ handleRouteChange: (params: HandleRouteChangeParams) => void;
 ## Tool Integration
 
 This pattern is designed to work with custom Zustand context utilities that provide:
+
 - **Auto-generated setters** - Type-safe setter creation
 - **Context integration** - Seamless React Context setup
 - **Type inference** - Full TypeScript support

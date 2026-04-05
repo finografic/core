@@ -1,9 +1,11 @@
 # Modern TypeScript Patterns
 
 ## Purpose
+
 Encourage Copilot to propose modern TS patterns when they add clear value.
 
 ## Prefer
+
 - Branded types for distinct primitives.
 - Result types for explicit error handling.
 - Discriminated unions for state machines.
@@ -11,13 +13,13 @@ Encourage Copilot to propose modern TS patterns when they add clear value.
 - Type utilities (type-fest) for complex transformations.
 
 ## Avoid
+
 - Over-engineering; advanced FP libraries unless requested.
 
 ## Examples
+
 ```typescript
-type Result<T, E = Error> =
-  | { ok: true; value: T }
-  | { ok: false; error: E };
+type Result<T, E = Error> = { ok: true; value: T } | { ok: false; error: E };
 
 type State =
   | { status: 'idle' }
@@ -27,5 +29,5 @@ type State =
 ```
 
 ## Guidance
-- Explain briefly when introducing a pattern and why it helps.
 
+- Explain briefly when introducing a pattern and why it helps.
