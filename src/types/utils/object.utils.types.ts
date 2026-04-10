@@ -10,11 +10,27 @@ import type { SnakeToCamel } from './casing.utils.types';
  * // { userId: string }
  */
 export type CamelCasedKeys<T> = {
-  [K in keyof T as SnakeToCamel<string & K>]:
-  T[K] extends object ? CamelCasedKeys<T[K]> : T[K];
+  [K in keyof T as SnakeToCamel<string & K>]: T[K] extends object ? CamelCasedKeys<T[K]> : T[K];
 };
 
 // ------------------------------------------------------------------------ //
+
+// DEPRECATED: V1
+
+/**
+ * Removes index signatures from an object type while preserving explicit keys.
+ *
+ * @example
+ * type Result = StripIndexSignature<{ id: number; [key: string]: any }>;
+ * // { id: number }
+ */
+export type StripIndexSignature<T extends Record<string, unknown>> = {
+  [K in keyof T as K extends string ? K : never]: T[K];
+};
+
+// ------------------------------------------------------------------------ //
+
+// NEW: V2 - of `RemoveIndexSignature` that uses `oxfmt-ignore` to avoid index signature errors.
 
 /**
  * Removes index signatures from an object type while preserving explicit keys.
@@ -23,9 +39,18 @@ export type CamelCasedKeys<T> = {
  * type Result = RemoveIndexSignature<{ id: number; [key: string]: any }>;
  * // { id: number }
  */
-export type RemoveIndexSignature<T extends Record<string, unknown>> = {
-  [K in keyof T as K extends string ? K : never]: T[K];
+
+/* eslint-disable */
+// oxfmt-ignore
+export type RemoveIndexSignature<T> = {
+  [
+    K in keyof T as string extends K ? never
+      : number extends K ? never
+      : symbol extends K ? never
+      : K
+  ]: T[K];
 };
+/* eslint-enable */
 
 // ------------------------------------------------------------------------ //
 
