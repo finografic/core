@@ -1,6 +1,6 @@
-import { formatTimeDuration, isValidTimeDuration, parseTimeDurationToSeconds } from './time.utils';
-
 import { describe, expect, it } from 'vitest';
+
+import { formatTimeDuration, isValidTimeDuration, parseTimeDurationToSeconds } from './time.utils';
 
 describe('time.utils', () => {
   describe('formatTimeDuration', () => {

@@ -54,6 +54,9 @@
     "·········· LINTING": "···················································",
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
+    "·········· FORMATTING": "··················································",
+    "format:check": "oxfmt --check",
+    "format:fix": "oxfmt",
     "·········· PUBLISH.GITHUB": "············································",
     "release.github.patch": "pnpm run release.check && pnpm version patch && git push --follow-tags",
     "release.github.minor": "pnpm run release.check && pnpm version minor && git push --follow-tags",
@@ -63,6 +66,7 @@
     "·········· REGISTRIES": "··············································",
     "view.registry.github": "pnpm view @finografic/core --registry=https://npm.pkg.github.com",
     "·········· PACKAGES": "··················································",
+    "update:oxfmt-config": "pnpm update @finografic/oxfmt-config --latest && pnpm update oxfmt --latest",
     "update.eslint-config": "pnpm update @finografic/eslint-config --latest",
     "upgrade.deps.all": "pnpm update --latest",
     "·········· UTILS": "·····················································",
@@ -75,35 +79,44 @@
     "lodash": "4.17.21"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.2.0",
-    "@commitlint/config-conventional": "^20.2.0",
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "@eslint/js": "^9.39.2",
-    "@stylistic/eslint-plugin": "^5.6.1",
+    "@finografic/eslint-config": "^9.18.4",
+    "@finografic/project-scripts": "^1.3.3",
+    "@stylistic/eslint-plugin": "^5.10.0",
     "@types/lodash": "4.17.13",
     "@types/node": "^24.12.0",
-    "@typescript-eslint/eslint-plugin": "^8.51.0",
-    "@typescript-eslint/parser": "^8.51.0",
+    "@typescript-eslint/eslint-plugin": "^8.58.2",
+    "@typescript-eslint/parser": "^8.58.2",
     "eslint": "^9.39.2",
     "eslint-plugin-markdownlint": "^0.9.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "lint-staged": "^16.2.7",
+    "globals": "^17.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "markdownlint-cli": "^0.47.0",
     "simple-git-hooks": "^2.13.1",
-    "tsdown": "^0.20.0",
+    "tsdown": "^0.21.8",
     "type-fest": "^5.3.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.51.0",
-    "vitest": "^4.0.18"
+    "typescript": "6.0.2",
+    "typescript-eslint": "^8.58.2",
+    "vitest": "^4.1.4",
+    "oxfmt": "^0.45.0",
+    "@finografic/oxfmt-config": "^1.7.4"
   },
   "packageManager": "pnpm@10.8.0",
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs}": [
+      "oxfmt --no-error-on-unmatched-pattern",
       "eslint --fix"
     ],
     "*.md": [
+      "oxfmt --no-error-on-unmatched-pattern",
       "eslint --fix"
     ],
-    "*.{json,jsonc,yml,yaml,toml}": []
+    "*.{json,jsonc,yml,yaml,toml}": [
+      "oxfmt --no-error-on-unmatched-pattern"
+    ]
   },
   "commitlint": {
     "extends": [
@@ -111,6 +124,6 @@
     ]
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged --allow-empty && dprint check && pnpm exec eslint \"**/*.md\""
+    "pre-commit": "oxfmt --no-error-on-unmatched-pattern"
   }
 }

@@ -29,9 +29,7 @@ export const toTitleCase = (value: string): string => {
  * @returns A kebab-cased string.
  */
 export const camelCaseToKebab = (value: string): string => {
-  return value
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-    .toLowerCase();
+  return value.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 };
 
 /**

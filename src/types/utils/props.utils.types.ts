@@ -10,8 +10,7 @@
  * >;
  * // { id: number; email?: string }
  */
-export type OptionalProp<T, K extends keyof T> =
-  Omit<T, K> & Partial<Pick<T, K>>;
+export type OptionalProp<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 // ------------------------------------------------------------------------ //
 
@@ -25,7 +24,6 @@ export type OptionalProp<T, K extends keyof T> =
  * >;
  * // { id: number; name?: string }
  */
-export type RequiredProp<T, K extends keyof T> =
-  Omit<T, K> & Required<Pick<T, K>>;
+export type RequiredProp<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
 
 // ------------------------------------------------------------------------ //

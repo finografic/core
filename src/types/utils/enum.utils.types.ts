@@ -38,10 +38,7 @@ export type UpperEnumLike<T extends string> = {
  *
  * type KebabFields = MappedRecord<Fields, CamelToKebab<Fields>>;
  */
-export type MappedRecord<
-  TKey extends string,
-  TValue extends string = TKey
-> = {
+export type MappedRecord<TKey extends string, TValue extends string = TKey> = {
   readonly [K in TKey]: Extract<TValue, string>;
 };
 

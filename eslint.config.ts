@@ -1,13 +1,11 @@
 /// <reference path="./src/declarations.d.ts" />
-import tseslint from 'typescript-eslint';
-
 import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import type { Linter } from 'eslint';
-import { defineConfig, globalIgnores } from 'eslint/config';
 import markdownlintPlugin from 'eslint-plugin-markdownlint';
 import markdownlintParser from 'eslint-plugin-markdownlint/parser.js';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import tseslint from 'typescript-eslint';
+import type { Linter } from 'eslint';
 
 export default defineConfig([
   globalIgnores([
@@ -34,7 +32,6 @@ export default defineConfig([
     },
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      'simple-import-sort': simpleImportSort,
       stylistic,
     },
     rules: {
@@ -73,37 +70,12 @@ export default defineConfig([
       'stylistic/comma-dangle': ['error', 'only-multiline'],
       'stylistic/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
       'stylistic/arrow-spacing': ['error', { before: true, after: true }],
-
-      'simple-import-sort/imports': [
-        'error',
-        {
-          groups: [
-            ['^node', '^@finografic', '^@workspace'],
-            ['^\\u0000'],
-            [
-              '^(lib|utils)',
-              '^(types|constants|config)',
-              '^\\.\\.(?!/?$)',
-              '^\\.\\./?$',
-              '^\\./(?=.*/)(?!/?$)',
-              '^\\.(?!/?$)',
-              '^\\./?$',
-            ],
-          ],
-        },
-      ],
-      'simple-import-sort/exports': 'error',
     },
   },
 
   {
     files: ['**/*.md'],
-    ignores: [
-      'node_modules/**',
-      'dist/**',
-      '.cursor/chat/**',
-      '.github/instructions/**',
-    ],
+    ignores: ['node_modules/**', 'dist/**', '.cursor/chat/**', '.github/instructions/**'],
     languageOptions: {
       parser: markdownlintParser,
     },
