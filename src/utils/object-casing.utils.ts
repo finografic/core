@@ -30,13 +30,13 @@ export const toCamelCaseKeys = <T extends object>(obj: T): CamelCasedPropertiesD
     return obj.map(toCamelCaseKeys) as CamelCasedPropertiesDeep<T>;
   }
   if (typeof obj === 'object') {
-    return Object.entries(obj).reduce(
-      (acc, [key, value]) => ({
-        ...acc,
-        [camelCase(key)]: value && typeof value === 'object' ? toCamelCaseKeys(value) : value,
-      }),
-      {},
-    ) as CamelCasedPropertiesDeep<T>;
+    const camelCasedObject: Record<string, unknown> = {};
+
+    for (const [key, value] of Object.entries(obj)) {
+      camelCasedObject[camelCase(key)] = value && typeof value === 'object' ? toCamelCaseKeys(value) : value;
+    }
+
+    return camelCasedObject as CamelCasedPropertiesDeep<T>;
   }
 
   return obj as CamelCasedPropertiesDeep<T>;

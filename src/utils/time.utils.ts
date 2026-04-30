@@ -18,8 +18,6 @@
  *
  * @returns A zero-padded duration string in `mm:ss` format.
  */
-export function formatTimeDuration(seconds?: number | null): string;
-export function formatTimeDuration(input?: { ms: number | null }): string;
 export function formatTimeDuration(input?: number | null | { ms: number | null }): string {
   const seconds = typeof input === 'number' ? input : input?.ms != null ? Math.floor(input.ms / 1000) : null;
 

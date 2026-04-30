@@ -38,9 +38,9 @@ export type UpperEnumLike<T extends string> = {
  *
  *   type KebabFields = MappedRecord<Fields, CamelToKebab<Fields>>;
  */
-export type MappedRecord<TKey extends string, TValue extends string = TKey> = {
-  readonly [K in TKey]: Extract<TValue, string>;
-};
+export type MappedRecord<TKey extends string, TValue extends string = TKey> = Readonly<
+  Record<TKey, Extract<TValue, string>>
+>;
 
 // ------------------------------------------------------------------------ //
 
@@ -50,8 +50,6 @@ export type MappedRecord<TKey extends string, TValue extends string = TKey> = {
  * @example
  *   type StatusMap = MapIndex<'pending' | 'success', boolean>;
  */
-export type MapIndex<TKey extends string, TValue = unknown> = {
-  [K in TKey]: TValue;
-};
+export type MapIndex<TKey extends string, TValue = unknown> = Record<TKey, TValue>;
 
 // ------------------------------------------------------------------------ //
