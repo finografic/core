@@ -203,11 +203,11 @@ Do **not** flatten or over-optimize that.
 
 # 🧠 Final mental model (lock this in)
 
-| Layer                | Example                           | File             |
-| -------------------- | --------------------------------- | ---------------- |
-| Identifier transform | `user_id → userId`                | `string.utils`   |
-| Object transform     | `{ user_id } → { userId }`        | `object-casing`  |
-| Human formatting     | `"user profile" → "User Profile"` | `string.utils`   |
+| Layer                | Example                           | File            |
+| -------------------- | --------------------------------- | --------------- |
+| Identifier transform | `user_id → userId`                | `string.utils`  |
+| Object transform     | `{ user_id } → { userId }`        | `object-casing` |
+| Human formatting     | `"user profile" → "User Profile"` | `string.utils`  |
 
 If you respect this boundary, your utils will **never rot**.
 

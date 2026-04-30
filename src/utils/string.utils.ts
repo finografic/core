@@ -33,9 +33,7 @@ export const toTitleCase = (input: string): string => {
  */
 export const toCamelCase = (input: string): string => {
   return input
-    .replace(/[-_\s]+(.)?/g, (_, character: string | undefined) =>
-      character ? character.toUpperCase() : '',
-    )
+    .replace(/[-_\s]+(.)?/g, (_, character: string | undefined) => (character ? character.toUpperCase() : ''))
     .replace(/^(.)/, (character) => character.toLowerCase());
 };
 
