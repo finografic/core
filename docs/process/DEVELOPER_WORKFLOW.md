@@ -11,7 +11,7 @@ Template: day-to-day development for a **pnpm** monorepo or multi-package repo. 
 Typical scripts (yours may differ):
 
 ```bash
-pnpm lint          # ESLint / project lint
+pnpm lint          # Project lint
 pnpm lint:fix      # Lint with fixes, if defined
 pnpm format:fix    # Formatter (e.g. oxfmt)
 pnpm format:check  # Check formatting without writing
