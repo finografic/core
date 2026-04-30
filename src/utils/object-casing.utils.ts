@@ -22,15 +22,15 @@ function camelCase(str: string): string {
  *
  * @returns The converted object
  */
-export const toCamelCaseKeys = <T extends object>(input: T): CamelCasedPropertiesDeep<T> => {
-  if (input === null || input === undefined) {
-    return input as CamelCasedPropertiesDeep<T>;
+export const toCamelCaseKeys = <T extends object>(obj: T): CamelCasedPropertiesDeep<T> => {
+  if (obj === null || obj === undefined) {
+    return obj as CamelCasedPropertiesDeep<T>;
   }
-  if (Array.isArray(input)) {
-    return input.map(toCamelCaseKeys) as CamelCasedPropertiesDeep<T>;
+  if (Array.isArray(obj)) {
+    return obj.map(toCamelCaseKeys) as CamelCasedPropertiesDeep<T>;
   }
-  if (typeof input === 'object') {
-    return Object.entries(input).reduce(
+  if (typeof obj === 'object') {
+    return Object.entries(obj).reduce(
       (acc, [key, value]) => ({
         ...acc,
         [camelCase(key)]: value && typeof value === 'object' ? toCamelCaseKeys(value) : value,
@@ -39,5 +39,5 @@ export const toCamelCaseKeys = <T extends object>(input: T): CamelCasedPropertie
     ) as CamelCasedPropertiesDeep<T>;
   }
 
-  return input as CamelCasedPropertiesDeep<T>;
+  return obj as CamelCasedPropertiesDeep<T>;
 };

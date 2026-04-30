@@ -1,4 +1,5 @@
-export * from './object-case.utils';
+export * from './object-casing.utils';
 export * from './object-guards.utils';
-export * from './string-case.utils';
+export * from './string-casing.utils';
+export * from './string-format.utils';
 export * from './time.utils';
