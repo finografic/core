@@ -1,22 +1,22 @@
 /**
  * Time Utilities
  *
- * Centralized time formatting and parsing utilities.
- * Consolidates multiple formatTime implementations across the codebase.
+ * Centralized time formatting and parsing utilities. Consolidates multiple formatTime implementations across
+ * the codebase.
  */
 
 /**
  * Formats a duration as an `mm:ss` string.
  *
- * Accepts either seconds directly, or milliseconds via an object.
- * Returns `"00:00"` for null or undefined input.
- *
- * @returns A zero-padded duration string in `mm:ss` format.
+ * Accepts either seconds directly, or milliseconds via an object. Returns `"00:00"` for null or undefined
+ * input.
  *
  * @example
- * formatTimeDuration(125)            // "02:05"
- * formatTimeDuration({ ms: 125000 }) // "02:05"
- * formatTimeDuration()               // "00:00"
+ *   formatTimeDuration(125); // "02:05"
+ *   formatTimeDuration({ ms: 125000 }); // "02:05"
+ *   formatTimeDuration(); // "00:00"
+ *
+ * @returns A zero-padded duration string in `mm:ss` format.
  */
 export function formatTimeDuration(seconds?: number | null): string;
 export function formatTimeDuration(input?: { ms: number | null }): string;
@@ -36,12 +36,12 @@ export function formatTimeDuration(input?: number | null | { ms: number | null }
  *
  * Returns `0` for invalid input.
  *
- * @returns Duration in seconds.
- *
  * @example
- * parseDurationString("02:05") // 125
- * parseDurationString("00:00") // 0
- * parseDurationString("oops")  // 0
+ *   parseDurationString('02:05'); // 125
+ *   parseDurationString('00:00'); // 0
+ *   parseDurationString('oops'); // 0
+ *
+ * @returns Duration in seconds.
  */
 export const parseTimeDurationToSeconds = (value: string): number => {
   if (!value || !value.includes(':')) return 0;
@@ -57,12 +57,12 @@ export const parseTimeDurationToSeconds = (value: string): number => {
  *
  * Defaults to the range `0` → `59:59`.
  *
- * @returns True if the duration is within bounds.
- *
  * @example
- * isValidDuration(125)  // true
- * isValidDuration(3600) // false
- * isValidDuration(-1)   // false
+ *   isValidDuration(125); // true
+ *   isValidDuration(3600); // false
+ *   isValidDuration(-1); // false
+ *
+ * @returns True if the duration is within bounds.
  */
 export const isValidTimeDuration = (seconds: number, minSeconds = 0, maxSeconds = 3599): boolean => {
   return seconds >= minSeconds && seconds <= maxSeconds;

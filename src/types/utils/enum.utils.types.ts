@@ -8,12 +8,12 @@ import type { KebabToScreamingSnake } from './casing.utils.types';
  * Keys are `SCREAMING_SNAKE_CASE`, values remain kebab-case.
  *
  * @example
- * type ButtonType = "reset" | "program-time";
+ *   type ButtonType = 'reset' | 'program-time';
  *
- * const BUTTON_TYPES: EnumLike<ButtonType> = {
- *   RESET: "reset",
- *   PROGRAM_TIME: "program-time",
- * } as const;
+ *   const BUTTON_TYPES: EnumLike<ButtonType> = {
+ *     RESET: 'reset',
+ *     PROGRAM_TIME: 'program-time',
+ *   } as const;
  */
 export type EnumLike<T extends string> = {
   readonly [K in T as KebabToScreamingSnake<K>]: K;
@@ -34,9 +34,9 @@ export type UpperEnumLike<T extends string> = {
  * Maps a string union to a readonly record with optionally transformed values.
  *
  * @example
- * type Fields = "drinkType" | "containerType";
+ *   type Fields = 'drinkType' | 'containerType';
  *
- * type KebabFields = MappedRecord<Fields, CamelToKebab<Fields>>;
+ *   type KebabFields = MappedRecord<Fields, CamelToKebab<Fields>>;
  */
 export type MappedRecord<TKey extends string, TValue extends string = TKey> = {
   readonly [K in TKey]: Extract<TValue, string>;
@@ -48,7 +48,7 @@ export type MappedRecord<TKey extends string, TValue extends string = TKey> = {
  * Creates a simple object type from a string union.
  *
  * @example
- * type StatusMap = MapIndex<"pending" | "success", boolean>;
+ *   type StatusMap = MapIndex<'pending' | 'success', boolean>;
  */
 export type MapIndex<TKey extends string, TValue = unknown> = {
   [K in TKey]: TValue;

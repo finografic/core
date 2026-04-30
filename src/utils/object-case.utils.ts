@@ -3,9 +3,10 @@ import type { CamelCasedPropertiesDeep } from 'type-fest';
 /**
  * Convert snake_case keys to camelCase keys
  *
- * @returns The converted string
  * @example
- * camelCase('snake_case') // 'camelCase'
+ *   camelCase('snake_case'); // 'camelCase'
+ *
+ * @returns The converted string
  */
 function camelCase(str: string): string {
   return str
@@ -16,9 +17,10 @@ function camelCase(str: string): string {
 /**
  * Convert snake_case keys to camelCase keys
  *
- * @returns The converted object
  * @example
- * toCamelCaseKeys({ snake_case: 'value' }) // { camelCase: 'value' }
+ *   toCamelCaseKeys({ snake_case: 'value' }); // { camelCase: 'value' }
+ *
+ * @returns The converted object
  */
 export const toCamelCaseKeys = <T extends object>(input: T): CamelCasedPropertiesDeep<T> => {
   if (input === null || input === undefined) {
