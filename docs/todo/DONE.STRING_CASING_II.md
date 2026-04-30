@@ -67,31 +67,20 @@ string-case.utils.ts   ❌ mixed
 ### AFTER
 
 ```
-string-casing.utils.ts     ✅ identifiers only
-string-format.utils.ts     ✅ human-readable only
+string.utils.ts            ✅ string transforms + display formatting
 ```
 
 ---
 
 ## Step 2 — what goes where
 
-### ✅ `string-casing.utils.ts` (pure transforms)
+### ✅ `string.utils.ts` (single file, two sections)
 
 ```ts
 camelCaseToKebab
-snakeToCamel
+toCamelCase
+toPascalCase
 camelCaseToSentence   ← ⚠️ borderline but acceptable here (input = identifier)
-```
-
-Rule:
-
-> Input is a “code-style string”
-
----
-
-### ✅ `string-format.utils.ts` (human text)
-
-```ts
 capitalize
 toTitleCase
 unslugify
@@ -99,7 +88,7 @@ unslugify
 
 Rule:
 
-> Input is “text for UI / labels / display”
+> Keep identifier transforms and human-readable formatting in separate sections inside one file.
 
 ---
 
@@ -129,8 +118,7 @@ Why:
 
 ```
 src/utils/
-  string-casing.utils.ts
-  string-format.utils.ts
+  string.utils.ts
   object-casing.utils.ts
   object-guards.utils.ts
   time.utils.ts
@@ -162,7 +150,7 @@ Just implement it cleanly.
 
 ✔ Yes — but only slightly
 
-Fix = **split string-case into two files**
+Fix = **keep one file, but separate it into clear sections**
 
 ---
 
@@ -215,11 +203,11 @@ Do **not** flatten or over-optimize that.
 
 # 🧠 Final mental model (lock this in)
 
-| Layer                | Example                           | File            |
-| -------------------- | --------------------------------- | --------------- |
-| Identifier transform | `user_id → userId`                | `string-casing` |
-| Object transform     | `{ user_id } → { userId }`        | `object-casing` |
-| Human formatting     | `"user profile" → "User Profile"` | `string-format` |
+| Layer                | Example                           | File             |
+| -------------------- | --------------------------------- | ---------------- |
+| Identifier transform | `user_id → userId`                | `string.utils`   |
+| Object transform     | `{ user_id } → { userId }`        | `object-casing`  |
+| Human formatting     | `"user profile" → "User Profile"` | `string.utils`   |
 
 If you respect this boundary, your utils will **never rot**.
 
